@@ -1,4 +1,4 @@
-public class  FaturaCliente {
+    
     public class FaturaCliente {
         private int id;
         private Cliente cliente;
@@ -35,8 +35,8 @@ public class  FaturaCliente {
         }
     
         public double getValorComDesconto() {
-            if (cliente == null) return valor;
-            return valor - (valor * cliente.getDesconto() / 100.0);
+            double desconto = cliente.getDesconto();
+            return valor * (1 - (desconto / 100.0));
         }
     
         @Override
@@ -45,4 +45,3 @@ public class  FaturaCliente {
         }
     }
     
-}
