@@ -1,11 +1,13 @@
 public class ContaCliente {
+    private int id;
     private String nome;
     private String cpf;
     private double saldo;
     private String tipoConta;
 
-    // Constructor
-    public ContaCliente(String nome, String cpf, double saldo, String tipoConta) {
+    // Construtor com ID
+    public ContaCliente(int id, String nome, String cpf, double saldo, String tipoConta) {
+        this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.saldo = saldo;
@@ -13,6 +15,14 @@ public class ContaCliente {
     }
 
     // Getters e Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -44,5 +54,4 @@ public class ContaCliente {
     public void setTipoConta(String tipoConta) {
         this.tipoConta = tipoConta;
     }
-
 }
