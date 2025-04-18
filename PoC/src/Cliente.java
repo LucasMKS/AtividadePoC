@@ -1,25 +1,42 @@
 public class Cliente {
-private String nome;
-    private int idade;
+    int id;
+    private String nome;
+    private int desconto;
+    private String genero;
+    
+        public Cliente(int id, String nome, int desconto) {
+            this.id = id;
+            this.nome = nome;
+            this.desconto = desconto;
+        }
 
-    public Cliente(String nome, int idade) {
-        this.nome = nome;
-        this.idade = idade;
-    }
+        public int getId() {
+            return id;
+        }
+    
+        public String getNome() {
+            return nome;
+        }
 
-    public String getNome() {
-        return nome;
-    }
+        public String getGenero() {
+            return genero;
+        }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+        public void setGenero(String genero) {
+            this.genero = genero;
+        }
+    
+        public int getDesconto() {
+            return desconto;
+        }
 
-    public int getIdade() {
-        return idade;
-    }
+        public void setDesconto(int desconto) {
+            this.desconto = desconto;
+        }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
+        @Override
+        public String toString() {
+            return nome + "(" + id + ")(" + desconto + "%)";
+        }
+
 }
