@@ -1,42 +1,33 @@
 public class ContaCliente {
     private int id;
-    private String nome;
-    private String cpf;
-    private double saldo;
-    private String tipoConta;
+    private Cliente cliente;
+    private double saldo = 0.0;
 
-    // Construtor com ID
-    public ContaCliente(int id, String nome, String cpf, double saldo, String tipoConta) {
+    public ContaCliente(int id,  Cliente cliente, double saldo) {
         this.id = id;
-        this.nome = nome;
-        this.cpf = cpf;
+        this.cliente = cliente;
         this.saldo = saldo;
-        this.tipoConta = tipoConta;
     }
 
-    // Getters e Setters
+    public ContaCliente(int id,  Cliente cliente) {
+        this.id = id;
+        this.cliente = cliente;
+    }
+
+    public ContaCliente(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public double getSaldo() {
@@ -47,11 +38,25 @@ public class ContaCliente {
         this.saldo = saldo;
     }
 
-    public String getTipoConta() {
-        return tipoConta;
+    public double addDeposito(double valor) {
+        this.saldo += valor;
+        System.out.println("Depósito de R$" + valor + " efetuado.");
+        return saldo;
     }
 
-    public void setTipoConta(String tipoConta) {
-        this.tipoConta = tipoConta;
+    public double subSaldo(double valor) {
+        if (valor > saldo) {
+            System.out.println("Saldo insuficiente para retirar R$" + valor);
+            return saldo;
+        }
+        saldo -= valor;
+        System.out.println("Retirada de R$" + valor + " efetuada.");
+        return saldo;
     }
+
+    @Override
+    public String toString() {
+        return cliente.getNome() + "(" + cliente.getId() + ") saldo=R$" + String.format("%.2f", saldo);
+    }
+
 }
